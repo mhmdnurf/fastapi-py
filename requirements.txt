@@ -1,3 +1,6 @@
 fastapi
 sqlalchemy
 mysql-connector-python
+PyJWT
+passlib
+python-jose
