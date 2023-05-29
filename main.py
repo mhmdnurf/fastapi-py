@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy import create_engine
 
 app = FastAPI()
-db_url = "mysql+mysqlconnector://root:@localhost/fastapi-test"
+db_url = "mysql+mysqlconnector://root:crack_@34.101.145.22/crack-db"
 engine = create_engine(db_url)
 SessionLocal = sessionmaker(bind=engine)
 Base.metadata.create_all(bind=engine)

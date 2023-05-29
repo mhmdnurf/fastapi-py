@@ -4,3 +4,4 @@ mysql-connector-python
 PyJWT
 passlib
 python-jose
+uvicorn
