@@ -26,9 +26,9 @@ def dashboard(credentials: HTTPAuthorizationCredentials = Depends(bearer)):
         raise HTTPException(status_code=401, detail="Autentikasi gagal")
 
 @app.post("/register")
-def register(username: str, password: str):
+def register(nama_lengkap: str, username: str, password: str, alamat: str):
     session = SessionLocal()
-    user = User(username=username, password=password)
+    user = User(nama_lengkap=nama_lengkap, username=username, password=password, alamat=alamat)
     session.add(user)
     try:
         session.commit()
@@ -47,3 +47,7 @@ def login(username: str, password: str):
         token = jwt.encode({"username": username}, SECRET_KEY, algorithm=ALGORITHM)
         return {"message": "Login successful", "token": token}
     raise HTTPException(status_code=401, detail="Invalid username or password")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="localhost", port=3001)
